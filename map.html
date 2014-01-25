@@ -48,8 +48,24 @@
   <script>
   var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([42, 14], 6);
   
-  map.markerLayer.setGeoJSON(centroidi);
-  
+
+// Add custom popups to each using our custom feature properties
+map.markerLayer.on('layeradd', function(e) {
+  var marker = e.layer,
+  feature = marker.feature;
+
+    // Create custom popup content
+    var popupContent =  feature.properties.AREA;
+
+    // http://leafletjs.com/reference.html#popup
+    marker.bindPopup(popupContent,{
+      closeButton: false
+        //minWidth: 320
+      });
+  });
+
+map.markerLayer.setGeoJSON(centroidi);
+
   // controllo geolocalizzazione utente
   L.control.locate().addTo(map);
 
