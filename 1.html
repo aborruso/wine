@@ -136,7 +136,7 @@
 			<div id='map'></div>
 			<script>
 			var map = L.mapbox.map('map', 'examples.map-9ijuk24y')
-			.setView([44.842302270441522,8.667594779518785], 9);
+			.setView([44.842302270441522,8.667594779518785], 6);
 
 L.mapbox.markerLayer({
     // this feature is in the GeoJSON format: see geojson.org
@@ -154,8 +154,8 @@ L.mapbox.markerLayer({
         // one can customize markers by adding simplestyle properties
         // http://mapbox.com/developers/simplestyle/
         'marker-size': 'large',
-        'marker-symbol': 'alcohol-shop'
-        //'marker-color': '#f0a'
+        'marker-symbol': 'alcohol-shop',
+        'marker-color': '#E04A3F'
     }
 }).addTo(map);
 
