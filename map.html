@@ -46,7 +46,7 @@
     position:absolute;
     top:5px;
     right:5px;
-}
+  }
   </style>
 </head>
 <body>
@@ -72,8 +72,7 @@ map.markerLayer.on('layeradd', function(e) {
   });
 
 map.markerLayer.setGeoJSON(centroidi);
-map.addControl(L.mapbox.infoControl.addInfo('ciao'));
-map.addControl(L.mapbox.legendControl());
+
 
 
   // controllo geolocalizzazione utente
@@ -81,6 +80,8 @@ map.addControl(L.mapbox.legendControl());
 
   // per il permalink
   var hash = L.hash(map);
+
+
 
   </script>
 </body>
