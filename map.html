@@ -54,7 +54,6 @@
   <button id='home'><a href="./index.html">HOME</a></button>
   <script>
   var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([42, 14], 6);
-  
 
 // Add custom popups to each using our custom feature properties
 map.markerLayer.on('layeradd', function(e) {
@@ -62,9 +61,18 @@ map.markerLayer.on('layeradd', function(e) {
   feature = marker.feature;
 
     // Create custom popup content
-    var popupContent =  feature.properties.AREA;
-
-    // http://leafletjs.com/reference.html#popup
+	
+	if (feature.properties.AREA=='Bolgheri' || feature.properties.AREA=='Bardolino-Custoza' || feature.properties.AREA=='Menfi' || feature.properties.AREA=='Gambellara' ){
+	
+    var popupContent =  '<a href="./schede/'+ feature.properties.AREA.toLowerCase() +'.html">'+feature.properties.AREA+'</a>';
+	
+	}
+	
+	else
+	
+	var popupContent =  '<a href="./schede/00_tipo.html">'+feature.properties.AREA+'</a>';
+	
+	// http://leafletjs.com/reference.html#popup
     marker.bindPopup(popupContent,{
       closeButton: false
         //minWidth: 320

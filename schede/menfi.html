@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="utf-8">
+	<title>Menfi - Atlante geologico dei vini</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../img/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../img/renders/alcohol-shop-12.png">
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+
+    <!-- mapbox -->
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+
+    <style>
+    #map { height: 200px; width:100%; }
+    </style>
+
+    <!-- -->
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="../index.html">Wine ATLAS</a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li >
+								<a href="../index.html">L'atlante</a>
+							</li>
+							<li>
+								<a href="../map.html">Mappa</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Zonazioni<strong class="caret"></strong></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="./bardolino-custoza.html">Bardolino/Custoza</a>
+									</li>
+									<li>
+										<a href="./bolgheri.html">Bolgheri</a>
+									</li>
+									<li>
+										<a href="./gambellara.html">Gambellara</a>
+									</li>
+									<li>
+										<a href="./menfi.html">Menfi</a>
+									</li>
+									<!-- <li class="divider">
+									</li>
+									<li>
+										<a href="#">Separated link</a>
+									</li>
+									<li class="divider">
+									</li>
+									<li>
+										<a href="#">One more separated link</a>
+									</li> -->
+								</ul>
+							</li>
+						</ul>
+<!-- 					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control">
+						</div> <button type="submit" class="btn btn-default">Submit</button>
+					</form> -->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">Link</a>
+						</li>
+<!-- 						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Action</a>
+								</li>
+								<li>
+									<a href="#">Another action</a>
+								</li>
+								<li>
+									<a href="#">Something else here</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#">Separated link</a>
+								</li>
+							</ul>
+						</li> -->
+					</ul>
+				</div>
+				
+			</nav>
+			
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-8 column">
+			<h2>
+				Menfi
+			</h2>
+			<p>
+				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+			</p>
+
+			
+
+		</div>
+		<div class="col-md-4 column">
+			<div id='map'></div>
+			<script>
+			var map = L.mapbox.map('map', 'examples.map-9ijuk24y')
+			.setView([37.608906535947746, 13.005257347405916], 6);
+
+			L.mapbox.markerLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+    	type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [13.005257347405916, 37.608906535947746]
+    },
+    properties: {
+        // title: 'A Single Marker',
+        // description: 'Just one of me',
+        // one can customize markers by adding simplestyle properties
+        // http://mapbox.com/developers/simplestyle/
+        'marker-size': 'large',
+        'marker-symbol': 'alcohol-shop',
+        'marker-color': '#E04A3F'
+    }
+}).addTo(map);
+
+			</script>
+		</div>
+		
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img alt="300x200" src="../img/MENFI_tn.png" />
+				<div class="caption">
+					<h3>
+						Carta Geologica
+					</h3>
+					<p>
+						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					</p>
+					<p>
+						<a class="btn btn-primary" id="modal-893740" href="#modal-container-893740" role="button" class="btn" data-toggle="modal">Apri</a>
+
+						<div class="modal fade" id="modal-container-893740" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										<h4 class="modal-title" id="myModalLabel">
+											Carta Geologica di Menfi
+										</h4>
+									</div>
+									<div class="modal-body">
+										<div align="center">
+										<img class="img-responsive" src="../img/MENFI.png" width="601" height="312">
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img alt="300x200" src="../img/MENFI_3D_tn.png" />
+				<div class="caption">
+					<h3>
+						Modello 3D
+					</h3>
+					<p>
+						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					</p>
+					<p>
+						<a class="btn btn-primary" id="modal-893741" href="#modal-container-893741" role="button" class="btn" data-toggle="modal">Apri</a>
+						<div class="modal fade" id="modal-container-893741" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										<h4 class="modal-title" id="myModalLabel">
+											Modello 3D di Menfi
+										</h4>
+									</div>
+									<div class="modal-body">
+										<div align="center">
+										<img class="img-responsive" src="../img/MENFI_3D.png" width="630" height="143">
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img alt="300x200" src="../img/uva.png" />
+				<div class="caption">
+					<h3>
+						I vitigni
+					</h3>
+					<p>
+						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					</p>
+					<p>
+						<a class="btn btn-primary" href="#">Apri</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
