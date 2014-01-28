@@ -86,17 +86,21 @@ map.markerLayer.on('layeradd', function(e) {
 
 map.markerLayer.setGeoJSON(centroidi);
 
+
 window.addEventListener("DOMContentLoaded", doStuff, true);
 
 function doStuff(e) {
     map.fitBounds(map.markerLayer.setGeoJSON(centroidi).getBounds());
 }
 
+
+
+
   // controllo geolocalizzazione utente
   //L.control.locate().addTo(map);
 
   // per il permalink
-  var hash = L.hash(map);
+  //var hash = L.hash(map);
 
 
 
