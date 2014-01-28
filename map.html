@@ -54,7 +54,7 @@
   </style>
 </head>
 <body>
-  
+
   <div id='map'></div>
   
   <script>
@@ -66,17 +66,17 @@ map.markerLayer.on('layeradd', function(e) {
   feature = marker.feature;
 
     // Create custom popup content
-    
+
     if (feature.properties.AREA=='Bolgheri' || feature.properties.AREA=='Bardolino-Custoza' || feature.properties.AREA=='Menfi' || feature.properties.AREA=='Gambellara' ){
-     
+
       var popupContent =  '<a href="./schede/'+ feature.properties.AREA.toLowerCase() +'.html">'+feature.properties.AREA+'</a>';
-      
+
     }
-    
+
     else
-     
+
      var popupContent =  '<a href="./schede/00_tipo.html">'+feature.properties.AREA+'</a>';
-   
+
 	// http://leafletjs.com/reference.html#popup
   marker.bindPopup(popupContent,{
     closeButton: false
@@ -96,7 +96,7 @@ $(window).load(function() {
   //L.control.locate().addTo(map);
 
   // per il permalink
-  var hash = L.hash(map);
+  //var hash = L.hash(map);
 
 
 
